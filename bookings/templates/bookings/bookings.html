@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{% block title %}Bookings{% endblock %}
+
+{% block content %} 
+<h1 class="text-center p-2 d-block">
+    Latest Bookings
+</h1>
+<div class="container d-flex flex-row flex-wrap justify-content-center">
+    {% for booking in bookings %} 
+    <a href="" class="bookings" aria-label="Click to view {{booking.title}}">
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+              <h2 class="card-title">{{booking.title}}</h2>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
