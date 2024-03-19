@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Schedule Detail - {{schedule.title}}{% endblock %}
+
+{% block content %} 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <div class="container">
+        <div class="schedule-info mt-3 p-1">
+            <div class="schedule-detail">
+                <h1 class="text-center">{{ schedule.title }}</h1>
+                <p class="text-center">Posted by {{schedule.user}} on {{schedule.creation_date}}</p>
+                <hr>
+                <p>{{schedule.details}}</p>
+                <p><span class="material-symbols-outlined">
+                    calendar_month
+                    </span>{{ schedule.date_from }} - {{ schedule.date_until }}</p>
+                <p><span class="material-symbols-outlined">
+                    location_on
+                    </span>{{ schedule.location|title }}</p>
+
+                {% if request.user == schedule.user %} 
+                <div class="text-center">
+                    <a href="{% url 'book_schedule' schedule.id %}" class="btn btn-primary w-25">Book now</a>
+                    <a href="{% url 'edit_schedule' schedule.id %}" class="btn btn-primary w-25">Edit</a>
+                    <a href="{% url 'delete_schedule' schedule.id %}" class="btn btn-primary w-25">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
