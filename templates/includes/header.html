@@ -17,10 +17,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if url_name == 'schedules' %}active{% endif %}" href="{% url 'schedules' %}">Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'bookings' %}active{% endif %}" href="{% url 'bookings' %}">Bookings</a>
-                    </li>
+                   
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if url_name == 'account_logout' %}active{% endif %}" href="/accounts/logout/">Sign Out</a>

@@ -49,11 +49,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'bookings',
     'home',
     'crispy_forms',
     'crispy_bootstrap5',
     'schedules',
+    'bookings',
 ]
 
 SITE_ID = 1

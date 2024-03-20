@@ -6,6 +6,9 @@
 <h1 class="text-center p-2 d-block">
     Latest Schedule
 </h1>
+<div class="text-center">
+  <a href="{% url 'add_schedule' %}" class="btn btn-primary w-25">Add Schedule</a>
+</div>
 <div class="container">
     <h2>From: Today</h2>
     <table class="table table-striped">
@@ -29,21 +32,4 @@
       </tbody>
     </table>
   </div>
-
-
-
-
-
-
-<div class="container d-flex flex-row flex-wrap justify-content-center">
-    {% for schedule in schedules %} 
-    <a href="" class="schedules" aria-label="Click to view {{schedule.title}}">
-        <div class="card m-3" style="width: 18rem;">
-            <div class="card-body">
-              <h2 class="card-title">{{schedule.title}}</h2>
-            </div>
-        </div>
-    </a>
-    {% endfor %}
-</div>
 {% endblock %}

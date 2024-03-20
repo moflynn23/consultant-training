@@ -1,6 +1,8 @@
 from django import forms
 from .models import Schedule
 
+from .widgets import DatePickerInput, TimePickerInput, DateTimePickerInput
+
 
 class ScheduleForm(forms.ModelForm):
     """Form to create a schedule"""
@@ -14,6 +16,11 @@ class ScheduleForm(forms.ModelForm):
             "details",
             "location",
         ]
+
+        widgets = {
+            'date_from' : DateTimePickerInput(),
+            'date_until' : DateTimePickerInput(),
+        }
 
         labels = {
             "title": "Schedule Title",

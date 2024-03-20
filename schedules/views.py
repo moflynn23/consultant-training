@@ -9,7 +9,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Schedule
 from .forms import ScheduleForm
 
-from bookings.models import Booking
 
 class Schedules(ListView):
     """View all schedules"""
@@ -51,14 +50,6 @@ class EditSchedule(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class DeleteSchedule(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """Delete a schedule"""
     model = Schedule
-    success_url = '/schedules/'
-
-    def test_func(self):
-        return self.request.user == self.get_object().user
-
-class BookSchedule(LoginRequiredMixin, UserPassesTestMixin, DetailView):
-    """Book a schedule"""
-    model = Booking
     success_url = '/schedules/'
 
     def test_func(self):
