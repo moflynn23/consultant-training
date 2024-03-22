@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+
+{% block title %}Bookings{% endblock %}
+
+{% block content %} 
+<h1 class="text-center p-2 d-block">
+    Latest Bookings
+</h1>
+<div class="container d-flex flex-row flex-wrap justify-content-center">
+    {% for booking in bookings %} 
+    <div class="card m-3" style="width: 18rem;">
+        <img src="{{booking.image.url}}" class="card-img-top" alt="{{booking.image_alt}}">
+        <div class="card-body">
+            <h1 class="text-center">{{ booking.schedule.title }}</h1>
+            <hr>
+            <p>{{ booking.schedule.details }}</p>
+            <p><span class="material-symbols-outlined">
+                calendar_month
+                </span>{{ booking.schedule.date_from }} - {{ booking.schedule.date_until }}</p>
+            <p><span class="material-symbols-outlined">
+                location_on
+                </span>{{ booking.schedule.location|title }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

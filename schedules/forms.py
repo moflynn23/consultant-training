@@ -18,8 +18,8 @@ class ScheduleForm(forms.ModelForm):
         ]
 
         widgets = {
-            'date_from' : DateTimePickerInput(),
-            'date_until' : DateTimePickerInput(),
+            'date_from': DateTimePickerInput(attrs={'class': 'datepicker', 'id': 'date_from'}),
+            'date_until': DateTimePickerInput(attrs={'class': 'datepicker', 'id': 'date_until'}),
         }
 
         labels = {
