@@ -275,5 +275,7 @@ Cloudinary is used as a cloud to store images:
 - Logo was created from https://favicon.io/logo-generator/
 
 ### Acknowledgments
-- Code Institute LMS
+- Code Institute LMS walkthroughs
 - Kevin Loughrey's Django and Heroku setup videos
+- Django recipe sharing tutorial
+- Code Institute coaches
