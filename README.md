@@ -1,110 +1,279 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Consultant Training
 
-Welcome Mark O'Flynn,
+Welcome to our consultant training site! We are excited to embark on this journey together as we explore the ins and outs of consultancy and develop the skills necessary to excel in this dynamic field.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Consultants play a crucial role in helping organisations solve complex problems, improve performance, and achieve their goals. Whether you're a seasoned professional looking to enhance your expertise or someone new to the world of consulting, this user-friendly training site will provide you with valuable insights, practical strategies, and hands-on experience to thrive in various consulting environments.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+<a href="https://consultant-training-90d7ed762f2a.herokuapp.com/">View our Consultant Training site here.</a>
 
-## Gitpod Reminders
+![alt text](image.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## UX Design
 
-`python3 -m http.server`
+### Project Goals
+The project goals of the consultant training site revolves around providing a user-friendly platform for individuals or organisations to access high-quality training resources, develop essential consulting skills, and advance their careers in the consulting industry. 
 
-A blue button should appear to click: _Make Public_,
+### Agile Methodology
+Kanban Agile Methodology was used to write users stories, prioritize, and manage the backlog on GitHub board. 
 
-Another blue button should appear to click: _Open Browser_.
+No Epics were written as the stories were not large enough.
+User stories were written to cover the site functionality.
+The Project Board is set to public.
+The Project Board was used to track progression of the tasks through the Todo, In progress, and Done columns.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+<a href="https://github.com/users/moflynn23/projects/3/views/1?layout=board">The Kanban board and user stories can be found here.</a>
 
-A blue button should appear to click: _Make Public_,
+### Types of Users
 
-Another blue button should appear to click: _Open Browser_.
+#### First time user
+Simple and intuitive website navigation for easy exploration and discovery.
+Informative content providing an overview of schedules and bookings.
+- User-friendly forms with clear validation messages to ensure accurate input.
+- Easy Registration process.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+#### Registered User
+- Seamless login process with a secure and personalized user account.
+- Browsing available schedules.
+- Ability to book training.
 
-To log into the Heroku toolbelt CLI:
+#### Admin user
+- Secure and separate login portal for admin users with appropriate access control.
+- Access to an admin dashboard for managing users, schedules, and bookings.
+- Ability to add, edit, or delete users, schedules, and bookings.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Wireframes
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+![alt text](image-1.png)
 
-------
+![alt text](image-2.png)
 
-## Release History
+### Data Models
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### User Model
+- Django Allauth, the User model is the default user model provided by the Django authentication system.
+- The User entity has a one-to-many relationship with the Schedule and Booking entities. This means that a User can have multiple Schedules and Bookings, but each Schedule and Booking is associated with only one User.
 
-**September 20 2023:** Update Python version to 3.9.17.
+#### Schedule Model
+- Admin can add multiply schedules in Schedule model. So users can see the schedules and the relevent information on schedule list page.
+- Only Admin can change the data.
+- User can see the schedule information.
+- Information provided is schedule title, created by & date time, schedule dates and times, location and further details.
+- Schedule model has many to many relationship with Booking model. Therefore, each schedule offered on the platform can be booked by multiple users. This reflects the idea that a schedule can have numerous participants or bookings. Conversely, each booking made by a user can be associated with multiple schedules. This means that a user can enroll in or book multiple schedules.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Booking Model
+- A User can have multiple bookings, but each booking is associated with only one User. This is represented by the foreign key relationship between User and Booking.
+- Each user can book as many schedules as they would like.
+- User can book a course multiple times. This is a known bug and will be resolved in a future phase.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Database Schema
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![alt text](image-3.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Features
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Existing Features
+#### Landing Page
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+This is the page a user lands on when arriving at the site for the first time or before they've logged in if they don't have an active session. The nav bar gives them the option to either sign up for an account or sign in to an existing account.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![alt text](image-5.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+#### Sign Up Page
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+This is where the user can create an account for themselves by entering their e-mail address, desired username and password twice to confirm. 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![alt text](image-6.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+#### Sign In Page
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+This is where users with existing accounts can log in with either their username and password. They can choose to let their browser remember them if they plan on returning to the site on the same device to avoid having to log in again. If the user forgets their password they can click the link to reset it.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![alt text](image-7.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Nav Menu
 
-------
+The nav menu contains everything the user will need to navigate the site. From the nav menu when a user is logged in, users can view the schedule, view the bookings, and sign out. Users not logged in can still view the schedule and bookings, but will have the options to sign up or sign in.
 
-## FAQ about the uptime script
+![alt text](image-8.png)
 
-**Why have you added this script?**
+#### Footer
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+The footer appears across the website and includes social icons to LinkedIn, Instagram, GitHub, Twitter, and Youtube. For now the user is redirected to the login pages.
 
-**How will this affect me?**
+![alt text](image-9.png)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+#### Add a Schedule
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Adding a schedule couldn't be easier. The date time picker is presented to the user for the date range fields. All form fields are required. 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![alt text](image-10.png)
 
-**So….?**
+#### View Schedules
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+The list of schedules are visible on the schedule page. Only the date & time, and title which is clickable are shown.
 
-**Can I opt out?**
+![alt text](image-11.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+#### Edit a Schedule
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Schedules can be modified by the admin only. All fields can be modified.
 
-**Anything more?**
+![alt text](image-12.png)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+#### Delete a Schedule
 
----
+Schedules can be deleted accordingly by the admin only. The user is required to confirm in the event the delete button is clicked accidentally.
 
-Happy coding!
+![alt text](image-13.png)
+
+#### Add a Booking
+
+Making a booking is done by the simple click of a button. Users can browse the schedules and sign up as they wish.
+
+![alt text](image-14.png)
+
+#### View Bookings
+
+All bookings are listed on the bookings page.
+
+![alt text](image-15.png)
+
+
+## Technologies
+
+### Languages Used
+- HTML5
+- CSS
+- JavaScript
+- Python
+
+### Databases Used
+- ElephantSQL - Postgres database
+- Cloudinary
+
+### Frameworks Used
+- Django - Python framework
+- Bootstrap 5.3.2 - CSS framework
+
+### Programs Used
+- Github
+- Gitpod
+- Heroku
+- Google Fonts
+- Git version control
+- Favicon Generator
+- JSHint
+- W3C Markup Validation Service
+- CSS Validation Service
+
+## Manual Testing
+
+### Responsiveness
+
+The site's responsiveness was tested across multiple devices (phone, tablet, laptop).
+
+### Browser compatibility
+
+The following browser's were used to test browser compatibility:
+- Google Chrome
+- Firefox
+- Safari
+
+### Security Features
+
+#### User Authentication
+- Django Allauth is a popular authentication and authorization library for Django, which provides a set of features for managing user authentication, registration, and account management.
+#### CSRF Protection
+- Django provides built-in protection against Cross-Site Request Forgery (CSRF) attacks. CSRF tokens are generated for each user session, and they are required to submit forms or perform state-changing actions. When a user logs out, the session and associated CSRF token are invalidated, making it difficult for an attacker to forge a valid request using a copied URL.
+#### Custom error pages
+- 404 Error Page, provides user with a button the redirect to home page.
+
+### Code validation
+
+- W3C Markup Validation Service
+- CSS Validation Service
+
+### User Story tests
+
+### Bugs resolved
+
+- Build failed on Heroku deployment due to runtime error
+- Duplicate "Forgot password" links on Sign In page
+
+### Bugs unresolved
+
+- Error on password reset submission
+- Messages show on viewing a schedule
+
+## Deployment
+
+### Local Developement
+#### How to Fork
+- Log in(or Sign Up) to Github
+- Go to repository for this project <a href="https://github.com/moflynn23/consultant-training">consultant-training</a>
+- Click the fork button in the top right corner
+#### How to Clone
+- Log in(or Sign Up) to Github
+- Go to repository for this project <a href="https://github.com/moflynn23/consultant-training">consultant-training</a>
+- Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+- Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above)
+- Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+- Install the packages from the requirements.txt file - run Command pip3 install -r requirements.txt
+#### ElephantSQL Database
+ElephantSQL is using as PostgreSQL Database as follow:
+
+- Click Create New Instance to start a new database.
+- Provide a name (this is commonly the name of the project: tribe).
+- Select the Tiny Turtle (Free) plan.
+- You can leave the Tags blank.
+- Select the Region and Data Center closest to you.
+- Once created, click on the new database name, where you can view the database URL and Password.
+#### Cloudinary
+Cloudinary is used as a cloud to store images:
+
+- For Primary interest, you can choose Programmable Media for image and video API.
+- Optional: edit your assigned cloud name to something more memorable.
+- On your Cloudinary Dashboard, you can copy your API Environment Variable.
+- Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
+#### Heroku Deployment
+- Log into Heroku account or create an account.
+- Click the "New" button at the top right corner and select "Create New App".
+- Enter a unique application name
+- Select your region
+- Click "Create App"
+#### Prepare enviroment and settings.py
+- In your GitPod workspace, create an env.py file in the main directory.
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+- Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+- Comment out the default database configuration.
+- Save all files and make migrations.
+- Add the Cloudinary URL to env.py
+- Add the Cloudinary libraries to the list of installed apps.
+- Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Link the file to the templates directory in Heroku.
+- Change the templates directory to TEMPLATES_DIR
+- Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+#### Add the following Config Vars in Heroku
+- SECRET_KEY - This can be any Django random secret key
+- CLOUDINARY_URL - Insert your own Cloudinary API key
+- PORT = 8000
+- DATABASE_URL - Insert your own ElephantSQL database URL here
+#### Heroku needs two additional files to deploy properly
+- requirements.txt
+- Procfile
+#### Deploy
+- Make sure DEBUG = False in the settings.py
+- Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the GitHub repository is updated.
+- Click 'Open App' to view the deployed live site.
+
+## References
+
+### Content
+- Background image was downloaded from https://wallpapers.com/consultant#google_vignette
+- Logo was created from https://favicon.io/logo-generator/
+
+### Acknowledgments
+- Code Institute LMS
+- Kevin Loughrey's Django and Heroku setup videos
