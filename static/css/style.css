@@ -90,7 +90,7 @@ img.logo {
 
 .schedules {
     text-decoration: none;
-    color: var(--black);
+    color: var(--blue);
 }
 
 .schedules:hover {

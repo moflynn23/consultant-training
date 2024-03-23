@@ -52,7 +52,7 @@ class Schedule(models.Model):
     )
     
     class Meta:
-        ordering = ["-creation_date"]
+        ordering = ["creation_date"]
 
     def __str__(self):
         return str(self.title)

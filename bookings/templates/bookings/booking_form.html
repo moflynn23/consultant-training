@@ -1,0 +1,12 @@
+<!-- booking_form.html -->
+
+{% extends 'base.html' %}  <!-- Extend your base template -->
+
+{% block content %}
+  <h2>Create Booking</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

@@ -6,9 +6,11 @@
 <h1 class="text-center p-2 d-block">
     Latest Schedule
 </h1>
-<div class="text-center">
+{% if user.is_superuser %}
+<div class="text-center p-2 d-block">
   <a href="{% url 'add_schedule' %}" class="btn btn-primary w-25">Add Schedule</a>
 </div>
+{% endif %}
 <div class="container">
     <h2>From: Today</h2>
     <table class="table table-striped">
@@ -23,9 +25,9 @@
       <tbody>
         {% for schedule in schedules %} 
         <tr>
-          <td>{{schedule.date_from.day}}</td>
+          <td>{{ schedule.date_from.day }}</td>
           <td>{{ schedule.date_from | date:'F' }}</td>
-          <td>{{schedule.date_from.hour}}:{{schedule.date_from.minute}} - {{schedule.date_until.hour}}:{{schedule.date_until.minute}}</td>
+          <td>{{ schedule.date_from | time:"H:i"}} - {{ schedule.date_until | time:"H:i" }}</td>
           <td><a href="{% url 'schedule_detail' schedule.id %}" class="schedules" aria-label="Click to view {{schedule.title}}">{{schedule.title}}</a></td>
         </tr>
         {% endfor %}
