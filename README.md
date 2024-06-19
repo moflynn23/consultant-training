@@ -195,6 +195,28 @@ The following browser's were used to test browser compatibility:
 
 ### User Story tests
 
+| Page         | Action                      | Expected outcome                                            | Pass/Fail   |
+|--------------|-----------------------------|-------------------------------------------------------------|-------------|
+| Home | Click 'Home' from nav bar | Home page is displayed | Pass        |
+| Home | Click 'Sign Up' from nav bar | Sign Up form is displayed | Pass        |
+| Sign Up | Click 'Sign Up' | Username must be filled out | Pass        |
+| Sign Up | Enter username and click 'Sign Up' | Password must be filled out | Pass        |
+| Sign Up | Enter username, password and click 'Sign Up' | Password (again) must be filled out | Pass        |
+| Sign Up | Enter mandatory fields and click 'Sign Up' | Account is created | Pass        |
+| Home | Click 'Sign In' from nav bar | Sign In form is displayed | Pass        |
+| Sign In | Enter required details and click 'Sign In' | User is logged in | Pass        |
+| Home | Click 'Schedule' from nav bar | Schedule form is displayed | Pass        |
+| Schedule | Click 'Add Schedule' | Add Schedule form is displayed | Pass        |
+| Add a Schedule | Fill in all required fields and click 'Add Schedule' | Redirected to Schedule and schedule is listed | Pass        |
+| Schedule | Click on Title link | Schedule details are displayed | Pass        |
+| Home | Click 'Bookings' | Bookings listed are displayed | Pass        |
+| Home | Click Linked In icon | Open Linked In in new tab | Pass        |
+| Home | Click Instagram icon | Open Instagram in new tab | Pass        |
+| Home | Click GitHub icon | Open GitHub in new tab | Pass        |
+| Home | Click Twitter icon | Open Twitter in new tab | Pass        |
+| Home | Click YouTube icon | Open YouTube in new tab | Pass        |
+| Home | Click Consultant Training logo | Home page is displayed | Fail        |
+
 ### Bugs resolved
 
 - Build failed on Heroku deployment due to runtime error
