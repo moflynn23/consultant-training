@@ -190,8 +190,19 @@ The following browser's were used to test browser compatibility:
 
 ### Code validation
 
-- W3C Markup Validation Service
-- CSS Validation Service
+#### HTML5 Validation
+
+I used [W3C Markup Validation](https://validator.w3.org/) to validate my HTML5 code from all templates used in the project.
+
+Apart from some information messages, there was only one error that there must be only one main element.
+
+
+#### CSS Validation
+
+I used [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) to validate the CSS code from my custom stylesheet.
+
+There were no errors in the code to resolve, but 319 warnings. 
+
 
 ### User Story tests
 
@@ -216,6 +227,7 @@ The following browser's were used to test browser compatibility:
 | Home | Click Twitter icon | Open Twitter in new tab | Pass        |
 | Home | Click YouTube icon | Open YouTube in new tab | Pass        |
 | Home | Click Consultant Training logo | Home page is displayed | Fail        |
+| Sign Out | Click 'Sign Out' from nav bar | User is logged out | Pass        |
 
 ### Bugs resolved
 

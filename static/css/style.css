@@ -189,3 +189,35 @@ img.logo {
     background: url("../images/consultant.jpg") no-repeat center center/cover;
     position: relative;
 }
+
+.messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.messages li {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.messages .success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.messages .error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.messages .warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.messages .info {
+    background-color: #d9edf7;
+    color: #31708f;
+}

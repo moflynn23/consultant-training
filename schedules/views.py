@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 
 from django.contrib.auth.mixins import (
@@ -12,22 +14,18 @@ from .forms import ScheduleForm
 
 class Schedules(ListView):
     """View all schedules"""
-
     template_name = "schedules/schedules.html"
     model = Schedule
     context_object_name = "schedules"
 
 class ScheduleDetail(DetailView):
     """View a single schedule"""
-
     template_name = "schedules/schedule_detail.html"
     model = Schedule
     context_object_name = "schedule"  
 
-
 class AddSchedule(LoginRequiredMixin, CreateView):
     """Add schedule view"""
-
     template_name = "schedules/add_schedule.html"
     model = Schedule
     form_class = ScheduleForm
@@ -35,6 +33,7 @@ class AddSchedule(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        messages.success(self.request, 'Schedule added successfully.')
         return super(AddSchedule, self).form_valid(form)
 
 class EditSchedule(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -45,6 +44,7 @@ class EditSchedule(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     success_url = '/schedules/'
     
     def test_func(self):
+        messages.success(self.request, 'Schedule modified successfully.')
         return self.request.user == self.get_object().user
 
 class DeleteSchedule(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -53,4 +53,5 @@ class DeleteSchedule(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = '/schedules/'
 
     def test_func(self):
+        messages.success(self.request, 'Schedule deleted successfully.')
         return self.request.user == self.get_object().user
